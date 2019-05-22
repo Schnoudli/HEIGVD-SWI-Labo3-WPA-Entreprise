@@ -76,8 +76,10 @@ Dans cette première partie, vous allez capturer une connexion WPA Entreprise au
 		- Change cipher spec
 		
 	- Authentification interne et transmission de la clé WPA (échange chiffré, vu comme « Application data »)
+	![](img/appData.png)
 	
 	- 4-way hadshake
+	![](img/4wayHandshake.png)
 
 ### Répondez aux questions suivantes :
 
