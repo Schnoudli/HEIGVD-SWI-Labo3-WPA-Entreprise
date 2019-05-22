@@ -83,13 +83,15 @@ Dans cette première partie, vous allez capturer une connexion WPA Entreprise au
 
 > **_Question :_** Quelle ou quelles méthode(s) d’authentification est/sont proposé(s) au client ?
 > 
-> **_Réponse :_** 
+> **_Réponse :_** EAP-TLS ainsi que PEAP 
+![](img/authMethod.png)
 
 ---
 
 > **_Question:_** Quelle méthode d’authentification est utilisée ?
 > 
-> **_Réponse:_** 
+> **_Réponse:_** PEAP
+![](peapChoosen.png)
 
 ---
 
@@ -97,11 +99,11 @@ Dans cette première partie, vous allez capturer une connexion WPA Entreprise au
 > 
 > - Le serveur envoie-t-il un certificat au client ? Pourquoi oui ou non ?
 > 
-> **_Réponse:_**
+> **_Réponse:_** Oui, le serveur envoie effectivement un certificat au client
 > 
 > - b.	Le client envoie-t-il un certificat au serveur ? Pourquoi oui ou non ?
 > 
-> **_Réponse:_**
+> **_Réponse:_** Non, le client n'envoie pas de certificat au serveur
 > 
 
 ---
