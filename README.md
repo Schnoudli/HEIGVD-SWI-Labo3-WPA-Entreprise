@@ -35,23 +35,52 @@ Dans cette première partie, vous allez capturer une connexion WPA Entreprise au
 - Lancer une capture avec Wireshark
 - Etablir une connexion depuis un poste de travail (PC), un smartphone ou une tablette. Attention, il est important que la connexion se fasse à 2.4 GHz pour pouvoir sniffer avec les interfaces Alfa.
 - Comparer votre capture au processus d’authentification expliqué en classe (n’oubliez pas les captures !). En particulier, identifier les étapes suivantes :
+	
 	- Requête et réponse d’authentification système ouvert
+	
+	  Il s'agit des deux premiers paquets.
+	
+	  ![Open Request](img/openRequest.png)
+	
+	  ![Open Response](img/openResponse.png)
  	- Requête et réponse d’association
 	- Sélection de la méthode d’authentification
+	
 	- Phase d’initiation. Arrivez-vous à voir l’identité du client ?
+	
+	  Oui, elle est présente dans le second paquet
+	
 	- Phase hello :
 		- Version TLS
+		
+		  Il s'agit de la version 1.2 (cf photo plus bas).
+		
 		- Suites cryptographiques et méthodes de compression proposées par le client et acceptées par l’AP
+		
+		  Ici les ciphersuites proposées par le client
+		
+		  ![ciphersuites](img/ciphersuites.png)
+		
 		- Nonces
+		
+		  Sur la capture d'écran si dessus, on peut voir le nonces qui est le champ random.
+		
 		- Session ID
+		
+		  Le session ID du client est à 0 (cf. printscreen plus haut)
+		
 	- Phase de transmission de certificats
+	
 	 	- Certificat serveur
+		
 		- Change cipher spec
+		
 	- Authentification interne et transmission de la clé WPA (échange chiffré, vu comme « Application data »)
+	
 	- 4-way hadshake
 
 ### Répondez aux questions suivantes :
- 
+
 > **_Question :_** Quelle ou quelles méthode(s) d’authentification est/sont proposé(s) au client ?
 > 
 > **_Réponse :_** 
