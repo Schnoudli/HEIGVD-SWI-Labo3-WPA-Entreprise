@@ -46,9 +46,15 @@ Dans cette première partie, vous allez capturer une connexion WPA Entreprise au
  	- Requête et réponse d’association
 	- Sélection de la méthode d’authentification
 	
+	  La méthode d'authentification est demandée par l'AP en premier (paquets 3 à 5) :
+	
+	  ![authMethod](img/authMethod.png)
+	
+	  On peut voir que l'AP demande si on va se connecter avec EAP-TLS et le client répond par la négative dans le paquet suivant (numéro 4 sur l'image). En effet, en se connectant au wifi proposé par l'AP, le client choisit de se connecter avec EAP-PEAP donc il refuse l'autre méthode proposée par l'AP en précisant qu'il souhaite utiliser EAP-PEAP. L'AP propose donc EAP-PEAP et le client, satisfait, entame la phase de Hello et échange de nonces, mettant fin à la phase d'initiation.
+	
 	- Phase d’initiation. Arrivez-vous à voir l’identité du client ?
 	
-	  Oui, elle est présente dans le second paquet
+	  Oui, elle est présente dans le second paquet (cf. image n°2)
 	
 	- Phase hello :
 		- Version TLS
@@ -61,20 +67,42 @@ Dans cette première partie, vous allez capturer une connexion WPA Entreprise au
 		
 		  ![ciphersuites](img/ciphersuites.png)
 		
+		  Et ci-après, celle choisie par le serveur :
+		
+		  ![serverHello](img/serverHello.png)
+		
 		- Nonces
 		
-		  Sur la capture d'écran si dessus, on peut voir le nonces qui est le champ random.
+		  Sur les captures d'écran ci-dessus, on peut voir les nonces qui sont les champs random.
 		
 		- Session ID
 		
-		  Le session ID du client est à 0 (cf. printscreen plus haut)
+		  /!\ ARE YOU SURE ??? /!\ Le session ID du client est à 0 (cf. printscreen du client Hello)
 		
 	- Phase de transmission de certificats
 	
-	 	- Certificat serveur
-		
-		- Change cipher spec
-		
+	  - Certificat serveur
+	
+	    Les certificats sont transmis via les 3 paquets suivants : 7, 9 et 11 sur l'image ci-après.
+	
+	    ![certExchange](img/certExchange.png)
+	
+	    Il y a normalement un paquet pour transmettre le certificat TLS du serveur, un pour la clef du serveur et un « server hello done » pour indiquer que le serveur a fini. Wireshark nous regroupe ces 3 frames sur cette capture. On peut le voir via les 3 points à côté des paquets concernés dans la liste des paquets ou sur la première ligne du détail d'un paquet sur l'image : « 3 EAP-TLS Fragments ... #7, #9, #11 ».
+	
+	    Ces paquets sont entre-coupés de « ACK » du client
+	
+	  - Client key exchange
+	
+	    Le client envoie ensuite sa clef et annonce qu'il est prêt à passer en chiffré avec le « Change Cipher Spec »
+	
+	    ![clientKeyExchange](img/clientKeyExchange.png) 
+	
+	  - Change cipher spec
+	
+	    L'AP envoie ensuite un « Change Cipher Spec » pour annoncer qu'il est également prêt à transmettre de manière chiffrée. Le client envoie un « ACK » et on bascule sur une communication chiffrée : on ne voit que des « Application Data ».
+	
+	    ![changeCipherSpec](img/changeCipherSpec.png)
+	
 	- Authentification interne et transmission de la clé WPA (échange chiffré, vu comme « Application data »)
 	![](img/appData.png)
 	
@@ -85,7 +113,7 @@ Dans cette première partie, vous allez capturer une connexion WPA Entreprise au
 
 > **_Question :_** Quelle ou quelles méthode(s) d’authentification est/sont proposé(s) au client ?
 > 
-> **_Réponse :_** EAP-TLS ainsi que PEAP 
+> **_Réponse :_** EAP-TLS ainsi que PEAP (paquets 3 à 5)
 ![](img/authMethod.png)
 
 ---
