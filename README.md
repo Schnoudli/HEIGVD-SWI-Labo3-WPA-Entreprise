@@ -91,7 +91,7 @@ Dans cette première partie, vous allez capturer une connexion WPA Entreprise au
 > **_Question:_** Quelle méthode d’authentification est utilisée ?
 > 
 > **_Réponse:_** PEAP
-![](peapChoosen.png)
+![](img/peapChoosen.png)
 
 ---
 
@@ -99,11 +99,11 @@ Dans cette première partie, vous allez capturer une connexion WPA Entreprise au
 > 
 > - Le serveur envoie-t-il un certificat au client ? Pourquoi oui ou non ?
 > 
-> **_Réponse:_** Oui, le serveur envoie effectivement un certificat au client
+> **_Réponse:_** Oui, le serveur envoie effectivement un certificat au client. C'est toujours le cas, peu importe la méthode d'authentification.
 > 
 > - b.	Le client envoie-t-il un certificat au serveur ? Pourquoi oui ou non ?
 > 
-> **_Réponse:_** Non, le client n'envoie pas de certificat au serveur
+> **_Réponse:_** Non, le client n'envoie pas de certificat au serveur. Il devrait le faire s'il s'authentifiait avec EAP-TLS mais ce n'est pas le cas. Dans ce cas, PEAP est utilisé. Seul le serveur présente donc son certificat.
 > 
 
 ---
