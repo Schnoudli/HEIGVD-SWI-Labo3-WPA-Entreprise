@@ -164,7 +164,10 @@ Pour implémenter l’attaque :
 
 > **_Question:_** Quel type de hash doit-on indiquer à john pour craquer le handshake ?
 > 
-> **_Réponse:_** On voit que hostapd-wpe nous propose le challenge, la response ainsi qu'un hash prévu pour pour John et un autre prévu pour Hashcat. On peut donc lui fournir la ligne suivante : ``jtr NETNTLM:		abraham:$NETNTLM$891aa9bb12581837$7cda61ee18802a01b1c7ba5ca216e00a75c693bfa3a328ec``
+> **_Réponse:_** On voit que hostapd-wpe nous propose le challenge, la response ainsi qu'un hash prévu pour pour John et un autre prévu pour Hashcat. On peut donc lui fournir la ligne suivante : ``jtr NETNTLM:		abraham:$NETNTLM$891aa9bb12581837$7cda61ee18802a01b1c7ba5ca216e00a75c693bfa3a328ec`` <\br>
+![](img/hash1.png)
+![](img/hash2.png)
+![](img/john.png)
 
 ---
 
