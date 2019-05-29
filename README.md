@@ -77,7 +77,7 @@ Dans cette première partie, vous allez capturer une connexion WPA Entreprise au
 		
 		- Session ID
 		
-		  /!\ ARE YOU SURE ??? /!\ Le session ID du client est à 0 (cf. printscreen du client Hello)
+		  Le session ID est visible sur le printscreen du serveur Hello, juste au dessus. La valeur est à acb406e51958041ae8081e3ab3b18b86f0f83b9c553494f0db9c0c9568850fb1
 		
 	- Phase de transmission de certificats
 	
