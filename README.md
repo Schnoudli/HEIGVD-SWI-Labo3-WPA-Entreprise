@@ -156,15 +156,15 @@ Pour implémenter l’attaque :
 
 ### Répondez aux questions suivantes :
 
-> **_Question :_** Quelles modifications sont nécessaires dans la configuration de hostapd-wpe pour cette attaque ?
+> **_Question :_** 4. Quelles modifications sont nécessaires dans la configuration de hostapd-wpe pour cette attaque ?
 > 
 > **_Réponse :_** Il faut modifier le SSID du réseau, ainsi que le channel utilisé et le nom de l'interface utilisée.
 
 ---
 
-> **_Question:_** Quel type de hash doit-on indiquer à john pour craquer le handshake ?
+> **_Question:_** 5. Quel type de hash doit-on indiquer à john pour craquer le handshake ?
 > 
-> **_Réponse:_** On voit que hostapd-wpe nous propose le challenge, la response ainsi qu'un hash prévu pour pour John et un autre prévu pour Hashcat. On peut donc lui fournir la ligne suivante : ``jtr NETNTLM:		abraham:$NETNTLM$891aa9bb12581837$7cda61ee18802a01b1c7ba5ca216e00a75c693bfa3a328ec`` <\br>
+> **_Réponse:_** On voit que hostapd-wpe nous propose le challenge, la response ainsi qu'un hash prévu pour pour John et un autre prévu pour Hashcat. On peut donc lui fournir la ligne suivante : ``jtr NETNTLM:		abraham:$NETNTLM$891aa9bb12581837$7cda61ee18802a01b1c7ba5ca216e00a75c693bfa3a328ec``
 ![](img/hash1.png)
 ![](img/hash2.png)
 ![](img/john.png)
