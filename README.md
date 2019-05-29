@@ -170,7 +170,13 @@ Pour implémenter l’attaque :
 
 > **_Question:_** 6.	Quelles méthodes d’authentification sont supportées par hostapd-wpe ?
 > 
-> **_Réponse:_**
+> **_Réponse:_** Selon leur [documentation](https://github.com/OpenSecurityResearch/hostapd-wpe), Hostapd-wpe supporte les méthodes d'authentification suivantes :    
+    1. EAP-FAST/MSCHAPv2 (Phase 0)    
+    2. PEAP/MSCHAPv2    
+    3. EAP-TTLS/MSCHAPv2    
+    4. EAP-TTLS/MSCHAP    
+    5. EAP-TTLS/CHAP    
+    6. EAP-TTLS/PAP    
 
 
 ## Quelques éléments à considérer :
@@ -195,4 +201,4 @@ Un fork du repo original . Puis, un Pull Request contenant :
 
 ## Échéance
 
-Le 26 mai 2019 à 23h00
+Le 2 juin 2019 à 23h00
